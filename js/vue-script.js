@@ -5,7 +5,8 @@ const app = createApp({
     name: "vue slider",
     data() {
         return {
-            
+            destinations,
+            currentIndex: 0
         }
              
         

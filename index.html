@@ -35,12 +35,12 @@
 
       <!-- Gallery -->
       <div class="gallery">
-        <figure>
+        <figure v-for="(destination, i) in destinations" v-show="i === currentIndex">
           <figcaption>
-            <h2>Svezia</h2>
-            <h3>Scandinavia's blend of nature and innovation.</h3>
+            <h2>${destination.name}</h2>
+            <h3>${destination.decription}</h3>
           </figcaption>
-          <img src="img/01.jpg" alt="Svezia">
+          <img :src="`img/${destination.image}`" :alt="destination.name">
         </figure>
       </div>
 
@@ -50,7 +50,7 @@
 
     <!-- Thumbnails -->
     <div id="thumbnails">
-      <img src="img/01.jpg" alt="Svezia" class="active">
+      <img v-for="(destination, i) in destinations" :src="`img/${destination.image}`" :alt="destination.name" :class="{active: i === currentIndex}">
     </div>
 
     <!-- <div class="autoplay-controls">
