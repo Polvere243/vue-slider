@@ -8,9 +8,15 @@ const app = createApp({
             destinations,
             currentIndex: 0
         }
-             
-        
-    }
+    },
+    methods: {
+        slideForward() {
+            this.currentIndex++
+        },
+        slideBackward() {
+            this.currentIndex--
+        }
+    }  
 })
 
 app.mount ("#root");

@@ -31,21 +31,21 @@
   <div class="container" id="root">
     <div id="carousel">
       <!-- Prev button -->
-      <i id="prev-button" class="bi bi-arrow-left-circle-fill" role="button"></i>
+      <i id="prev-button" class="bi bi-arrow-left-circle-fill" role="button" @click="slideBackward"></i>
 
       <!-- Gallery -->
       <div class="gallery">
         <figure v-for="(destination, i) in destinations" v-show="i === currentIndex">
           <figcaption>
-            <h2>${destination.name}</h2>
-            <h3>${destination.decription}</h3>
+            <h2>{{destination.name}}</h2>
+            <h3>{{destination.description}}</h3>
           </figcaption>
           <img :src="`img/${destination.image}`" :alt="destination.name">
         </figure>
       </div>
 
       <!-- next button -->
-      <i id="next-button" class="bi bi-arrow-right-circle-fill" role="button"></i>
+      <i id="next-button" class="bi bi-arrow-right-circle-fill" role="button" @click="slideForward"></i>
     </div>
 
     <!-- Thumbnails -->
