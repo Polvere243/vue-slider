@@ -9,13 +9,36 @@ const app = createApp({
             currentIndex: 0
         }
     },
+    computed:{
+        isLastIndex() {
+            return this.currentIndex === this.lastDestinationIndex;
+        },
+        isFirstIndex() {
+            return this.currentIndex === 0;
+        },
+        lastDestinationIndex() {
+            return this.destinations.lenght-1;
+        }
+
+    },
     methods: {
         slideForward() {
-            this.currentIndex++
+            if (this.isLastIndex) currentIndex === 0;
+            else this.currentIndex++
         },
         slideBackward() {
+            if (this.isFirstIndex) currentIndex === this.isLastIndex; 
             this.currentIndex--
+        },
+        autoplay() {
+            onMounted(() => {
+                setInterval(() => {
+                    this.currentIndex++
+                }, 3000)
+
+            })
         }
+
     }  
 })
 
