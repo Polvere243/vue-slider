@@ -38,13 +38,12 @@ const app = createApp({
              
             
     
-        /* autoplay() {
-            onMounted(() => {
-                setInterval(() => {
-                    this.currentIndex++
-                }, 3000)
-
-            }) */
+       
+        },
+        mounted(){
+            setInterval (() => {
+                this.setCurrentIndex("next");
+            }, 3000);
         }
 
     }  
