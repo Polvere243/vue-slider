@@ -3,12 +3,10 @@ console.log("Vue Ok", Vue);
 const {createApp} = Vue;
 const app = createApp({
     name: "vue slider",
-    data() {
-        return {
-            destinations,
-            currentIndex: 0
-        }
-    },
+    data: () => ({
+        destinations,
+        currentIndex: 0
+    }),
     computed:{
         isLastIndex() {
             return this.currentIndex === this.lastDestinationIndex;
@@ -17,29 +15,39 @@ const app = createApp({
             return this.currentIndex === 0;
         },
         lastDestinationIndex() {
-            return this.destinations.lenght-1;
+            return this.destinations.length - 1;
         }
 
     },
     methods: {
-        slideForward() {
-            if (this.isLastIndex) currentIndex === 0;
-            else this.currentIndex++
-        },
-        slideBackward() {
-            if (this.isFirstIndex) currentIndex === this.isLastIndex; 
-            this.currentIndex--
-        },
-        autoplay() {
+        // metodo per impostare l'indice attuale al click dei pulsanti e delle miniature
+        setCurrentIndex (target) {
+            
+            if (target === "next") {
+                if (this.isLastIndex) this.currentIndex = 0;
+                else this.currentIndex++;
+            } else if (target === "prev") {
+                if (this.isFirstIndex) this.currentIndex = this.lastDestinationIndex;
+                else this.currentIndex--;
+            } else {
+                this.currentIndex = target;
+            }
+        }
+
+            
+             
+            
+    
+        /* autoplay() {
             onMounted(() => {
                 setInterval(() => {
                     this.currentIndex++
                 }, 3000)
 
-            })
+            }) */
         }
 
     }  
-})
+)
 
 app.mount ("#root");

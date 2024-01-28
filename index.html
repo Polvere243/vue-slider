@@ -31,7 +31,7 @@
   <div class="container" id="root">
     <div id="carousel">
       <!-- Prev button -->
-      <i id="prev-button" class="bi bi-arrow-left-circle-fill" role="button" @click="slideBackward"></i>
+      <i id="prev-button" class="bi bi-arrow-left-circle-fill" role="button" @click="setCurrentIndex('prev')"></i>
 
       <!-- Gallery -->
       <div class="gallery">
@@ -45,12 +45,12 @@
       </div>
 
       <!-- next button -->
-      <i id="next-button" class="bi bi-arrow-right-circle-fill" role="button" @click="slideForward"></i>
+      <i id="next-button" class="bi bi-arrow-right-circle-fill" role="button" @click="setCurrentIndex('next')"></i>
     </div>
 
     <!-- Thumbnails -->
     <div id="thumbnails">
-      <img v-for="(destination, i) in destinations" :src="`img/${destination.image}`" :alt="destination.name" :class="{active: i === currentIndex}" v-on:click="currentIndex = i">
+      <img v-for="(destination, i) in destinations" :src="`img/${destination.image}`" :alt="destination.name" :class="{active: i === currentIndex}" v-on:click="setCurrentIndex(i)">
     </div>
 
     <!-- <div class="autoplay-controls">
