@@ -35,7 +35,7 @@
 
       <!-- Gallery -->
       <div class="gallery">
-        <figure v-for="(destination, i) in destinations" v-show="i === currentIndex">
+        <figure v-for="(destination, i) in destinations" v-show="i === currentIndex" @mouseenter="stopAutoplay" @mouseleave="startAutoplay">
           <figcaption>
             <h2>{{destination.name}}</h2>
             <h3>{{destination.description}}</h3>
@@ -50,7 +50,7 @@
 
     <!-- Thumbnails -->
     <div id="thumbnails">
-      <img v-for="(destination, i) in destinations" :src="`img/${destination.image}`" :alt="destination.name" :class="{active: i === currentIndex}" v-on:click="setCurrentIndex(i)">
+      <img v-for="(destination, i) in destinations" :src="`img/${destination.image}`" :alt="destination.name" :class="{active: i === currentIndex}" v-on:click="setCurrentIndex(i)" @mouseenter="stopAutoplay" @mouseleave="startAutoplay">
     </div>
 
     <!-- <div class="autoplay-controls">

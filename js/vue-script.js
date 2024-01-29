@@ -5,7 +5,8 @@ const app = createApp({
     name: "vue slider",
     data: () => ({
         destinations,
-        currentIndex: 0
+        currentIndex: 0,
+        autoplay: null
     }),
     computed:{
         isLastIndex() {
@@ -32,18 +33,20 @@ const app = createApp({
             } else {
                 this.currentIndex = target;
             }
-        }
-
-            
-             
-            
-    
-       
         },
-        mounted(){
-            setInterval (() => {
+        // metodo per interrompere l'autoplay all passaggio del mouse su un'immagine
+        stopAutoplay() {
+            clearInterval(this.autoplay)
+        },
+
+        startAutoplay() {
+            this.autoplay = setInterval (() => {
                 this.setCurrentIndex("next");
             }, 3000);
+        }
+    },
+        mounted(){
+            this.startAutoplay();
         }
 
     }  
