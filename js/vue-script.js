@@ -34,7 +34,7 @@ const app = createApp({
                 this.currentIndex = target;
             }
         },
-        // metodo per interrompere l'autoplay all passaggio del mouse su un'immagine
+        // metodo per interrompere l'autoplay al passaggio del mouse su un'immagine
         stopAutoplay() {
             clearInterval(this.autoplay)
         },
